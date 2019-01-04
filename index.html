@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Foto Finder</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="">
+  <link rel="stylesheet" type="text/css" href="normalize.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <header>
+    <h1 class="title foto">Foto<span class="title finder">Finder</span>
+    </h1>
+      <section class="search-container">
+      <input type="search" id="live-search" placeholder="Search">
+      <i class="fas fa-search"></i>
+    </section>
+  </header>
+  <section class="title-body-wrapper">
+  <form class="title-body-container">
+    <label for="title">Title</label>
+    <input type="text" id="title">
+    <label for="body">Body</label>
+    <textarea type="text" id="body">  
+    </textarea>
+    <button class="choose-file-btn">Choose File</button>
+    <button class="view-favorite-btn" type="submit">View{1}Favorites</button>
+    <button class="add-to-album" type="submit">Add to Album</button>
+  </form>
+  </section>
+  <!-- CARDS -->
+  <section class="album-wrapper">
+    <button id="expand-button" type="submit">Show Less</button>
+  </section>
+  <script type="text/javascript" src="photo.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
+  
