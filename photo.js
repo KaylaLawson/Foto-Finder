@@ -4,7 +4,7 @@ class photo {
   }
 
   saveToStorage() {
-
+    
   }
 
   deleteFromStorage() {

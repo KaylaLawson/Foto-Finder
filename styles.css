@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  font-family: 'Open Sans', sans-serif;
+  grid-template-rows: 1fr 4fr 5fr;
+}
+
+/*------------------- HEADER --------------------*/
+
+header {
+  background-color: #3E2A35;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+
+.title {
+  display:flex;
+  color: #fff; 
+  font-weight: 800;
+}
+
+.icon-foto {
+  height: 30px;
+  padding: 0px 10px;
+}
+
+.search-container {
+  display: flex;
+  margin: 25px 0px;
+}
+
+.search-input {
+  border: none;
+}
+
+.fa-search {
+  padding: 5px;
+  background: #8C8C8C;
+  color: #fff;
+}
+
+/*------------------- FORM --------------------*/
+
+
+.form-wrapper {
+  background: #3E2A35;
+}
+
+.form-container {
+  display: grid;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.tbc {
+  width: 650px;
+}
+
+.title-text,
+.caption-text {
+  color: #fff;
+  margin: 10px 0px;
+}
+
+.choose-file-btn {
+  background: #5B4447;
+  border: none;
+  color: #fff;
+  margin: 20px 0px;
+  padding: 10px;
+}
+
+.view-addalbum-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.view-favorite-btn, 
+.add-to-album-btn {
+  background: #5B4447;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  margin: 10px 0px;
+  width: 315px;
+}
+
+.choose-file-btn:hover,
+.view-favorite-btn:hover, 
+.add-to-album-btn:hover {
+  background: #938284;
+}
+
+/* --------------- ALBUM WRAPPER--------------- */
+
+.album-wrapper {
+  background: #C2B2B4;
+}
+
+.expand-btn-container {
+  display: grid;
+  justify-content: center;
+}
+
+.expand-btn {
+  background: #5B4447;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  margin: 20px;
+  width: 650px;
+}
+
+.expand-btn:hover {
+  background: #938284;
+}
+
+
+
+
+
+
+
+

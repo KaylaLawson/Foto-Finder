@@ -5,32 +5,40 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
   <link rel="stylesheet" type="text/css" href="">
   <link rel="stylesheet" type="text/css" href="normalize.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 <body>
   <header>
-    <h1 class="title foto">Foto<span class="title finder">Finder</span>
+      <h1 class="title">FOTO
+      <img class="icon-foto" src="assets/foto-finder-logo.svg">FINDER
     </h1>
-      <section class="search-container">
-      <input type="search" id="live-search" placeholder="Search">
-      <i class="fas fa-search"></i>
+    <section class="search-container">
+      <input class="search-input" type="search" id="live-search" placeholder="Search">
+      <i class="fas 
+      fa-search"></i>
     </section>
   </header>
-  <section class="title-body-wrapper">
-  <form class="title-body-container">
-    <label for="title">Title</label>
-    <input type="text" id="title">
-    <label for="body">Body</label>
-    <textarea type="text" id="body">  
-    </textarea>
-    <button class="choose-file-btn">Choose File</button>
-    <button class="view-favorite-btn" type="submit">View{1}Favorites</button>
-    <button class="add-to-album" type="submit">Add to Album</button>
-  </form>
+  <section class="form-wrapper">
+    <form class="form-container">
+      <label class="tbc title-text" for="title">Title</label>
+      <input class="tbc title-input" type="text" id="title">
+      <label class="tbc caption-text" for="body">Caption</label>
+      <textarea class="tbc caption-input" type="text" id="body"> 
+      </textarea>
+      <button class="choose-file-btn">Choose File</button>
+      <article class="view-addalbum-container">
+        <button class="view-favorite-btn" type="submit">View{1}Favorites</button>
+        <button class="add-to-album-btn" type="submit">Add to Album</button>
+      </article>
+    </form>
   </section>
   <!-- CARDS -->
   <section class="album-wrapper">
-    <button id="expand-button" type="submit">Show Less</button>
+    <article class="expand-btn-container ">
+    <button class="expand-btn" type="submit">Show Less</button>
+  </article>
   </section>
   <script type="text/javascript" src="photo.js"></script>
   <script type="text/javascript" src="main.js"></script>
