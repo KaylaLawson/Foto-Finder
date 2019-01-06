@@ -64,12 +64,22 @@ header {
   margin: 10px 0px;
 }
 
-.choose-file-btn {
+#select-photo {
   background: #5B4447;
   border: none;
   color: #fff;
   margin: 20px 0px;
   padding: 10px;
+  text-align: center;
+}
+
+.choose-file-btn {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
 
 .view-addalbum-container {
@@ -87,7 +97,7 @@ header {
   width: 315px;
 }
 
-.choose-file-btn:hover,
+#select-photo:hover,
 .view-favorite-btn:hover, 
 .add-to-album-btn:hover {
   background: #938284;
