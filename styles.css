@@ -97,6 +97,8 @@ header {
 
 .album-wrapper {
   background: #C2B2B4;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .expand-btn-container {
@@ -116,6 +118,38 @@ header {
 .expand-btn:hover {
   background: #938284;
 }
+
+/* --------------- FOTO CARD ---------------*/
+
+.foto-card-container {
+  background: #fff;
+  height: 100px;
+  margin: 10px;
+  width: 100px;
+}
+.foto-card-container img {
+  width: 100%;
+}
+
+.foto-title,
+.foto-caption {
+
+}
+
+.foto-card-footer {
+  background: #5B4447;
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+}
+
+.foto-card-footer img {
+  margin: 5px;
+  width: 30px;
+}
+
+
+
 
 
 

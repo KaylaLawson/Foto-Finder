@@ -1,16 +1,33 @@
-var createAlbum = document.querySelector('.add-to-album-btn');
+// GLOBAL VARIABLES
+
 var photoFile = document.querySelector('.choose-file-btn');
-var photoGallery = document.querySelector('.images');
-var imagesArr = JSON.parse(localStorage.getItem('photos')) || [];
+var createAlbum = document.querySelector('.add-to-album-btn');
+var photoGallery = document.querySelector('.album-wrapper');
+var imagesArr = JSON.parse(localStorage.getItem('imagesArr')) || [];
 var reader = new FileReader();
+var title = document.querySelector('.title-input');
+var caption = document.querySelector('.caption-input');
+
+// EVENT LISTENERS
 
 window.addEventListener('load', appendPhotos);
 createAlbum.addEventListener('click', albumCard);
 
-function appendPhotos() {
-  imagesArr.forEach(function (photo) {
-    photoGallery.innerHTML += `<img src=${photo.file} />`
-  })
+// FUNCTIONS
+
+function populateCard(photoId, file, title, caption) {
+ photoGallery.innerHTML += 
+  `
+  <section class="foto-card-container" data-id=${photoId}>
+    <h2 class="foto-title" contenteditable="true">${title}</h2>
+    <article class="foto-image"><img src=${file} /></article>
+    <h2 class="foto-caption" contenteditable="true">${caption}</h2>
+    <article class="foto-card-footer">
+      <img class="trash-icon" src="assets/delete.svg">
+      <img calss="heart-icon" src="assets/favorite.svg">
+    </article>
+  </section>
+  `;
 }
 
 function albumCard(event) {
@@ -22,11 +39,39 @@ function albumCard(event) {
 }
 
 function addPhoto(e) {
-  // console.log(e.target.result);
-  var newPhoto = new Photo(Date.now(), e.target.result);
-  photoGallery.innerHTML += `<img src=${e.target.result} />`;
-  imagesArr.push(newPhoto)
-  newPhoto.saveToStorage(imagesArr)
+  var newPhoto = new Photo(Date.now(), e.target.result, title.value, caption.value);
+  populateCard(newPhoto.photoId, newPhoto.file, newPhoto.title, newPhoto.caption);
+  imagesArr.push(newPhoto);
+  newPhoto.saveToStorage(imagesArr);
 }
+  
+  // add favoiret later
+  // photoGallery.innerHTML += 
+  // `
+  // <section class="foto-card-container">
+  //   <h2 class="foto-title" contenteditable="true">${title.value}</h2>
+  //   <article class="foto-image"><img src=${e.target.result} /></article>
+  //   <h2 class="foto-caption" contenteditable="true">${caption.value}</h2>
+  //   <article class="foto-card-footer">
+  //     <img class="trash-icon" src="assets/delete.svg">
+  //     <img calss="heart-icon" src="assets/favorite.svg">
+  //   </article>
+  // </section>
+  // `;
 
-var photoInput = document.querySelector('.choose-file-btn');
+
+function appendPhotos() {
+  imagesArr.forEach(function (photo) {
+    populateCard(photo.id, photo.file, photo.title, photo.caption);
+    });
+}
+    // photoGallery.innerHTML += 
+      // `<section class="foto-card-container">
+      //   <h2 class="foto-title" contenteditable="true">${photo.title}</h2>
+      //   <article class="foto-image"><img src=${photo.file} /></article>
+      //   <h2 class="foto-caption" contenteditable="true">${photo.caption}</h2>
+      //   <article class="foto-card-footer">
+      //     <img class="trash-icon" src="assets/delete.svg">
+      //     <img calss="heart-icon" src="assets/favorite.svg">
+      //   </article>
+      // </section>`;
