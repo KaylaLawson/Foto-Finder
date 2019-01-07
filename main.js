@@ -36,11 +36,11 @@ function albumCard(event) {
   event.preventDefault();
   if (photoFile.files[0]) {
     reader.readAsDataURL(photoFile.files[0]); 
-    reader.onload = addPhoto
+    reader.onload = addFotoCard
   }
 }
 
-function addPhoto(e) {
+function addFotoCard(e) {
   var newPhoto = new Photo(Date.now(), e.target.result, title.value, caption.value);
   populateCard(newPhoto.photoId, newPhoto.file, newPhoto.title, newPhoto.caption);
   imagesArr.push(newPhoto);
@@ -59,14 +59,14 @@ function removeAllCards() {
   photoGallery.innerHTML = '';
 }
 
-function liveSerachFilter () {
+function liveSearchFilter () {
   removeAllCards();
   var searchCurrentText = searchInput.value;
   var filteredCards = imagesArr.filter(function (photo) {
-    return idea.title.includes(searchCurrentText) || idea.body.includes(searchCurrentText)
+    return photo.title.includes(searchCurrentText) || photo.caption.includes(searchCurrentText)
   });
-  filteredCards.forEach(function(idea) {
-    generateIdeaCard(idea);
+  filteredCards.forEach(function(photo) {
+    addFotoCard(photo);
   });
 }
 
