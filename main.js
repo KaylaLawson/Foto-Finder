@@ -7,11 +7,13 @@ var imagesArr = JSON.parse(localStorage.getItem('imagesArr')) || [];
 var reader = new FileReader();
 var title = document.querySelector('.title-input');
 var caption = document.querySelector('.caption-input');
+var searchInput = document.querySelector('.search-input');
 
 // EVENT LISTENERS
 
 window.addEventListener('load', appendPhotos);
 createAlbum.addEventListener('click', albumCard);
+searchInput.addEventListener('input', liveSearchFilter);
 
 // FUNCTIONS
 
@@ -52,3 +54,19 @@ function appendPhotos() {
     populateCard(photo.id, photo.file, photo.title, photo.caption);
     });
 }
+
+function removeAllCards() {
+  photoGallery.innerHTML = '';
+}
+
+function liveSerachFilter () {
+  removeAllCards();
+  var searchCurrentText = searchInput.value;
+  var filteredCards = imagesArr.filter(function (photo) {
+    return idea.title.includes(searchCurrentText) || idea.body.includes(searchCurrentText)
+  });
+  filteredCards.forEach(function(idea) {
+    generateIdeaCard(idea);
+  });
+}
+
