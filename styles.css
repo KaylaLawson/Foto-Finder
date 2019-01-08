@@ -33,12 +33,14 @@ header {
 
 .search-input {
   border: none;
+  border-radius: 2px;
 }
 
 .fa-search {
   padding: 5px;
   background: #8C8C8C;
   color: #fff;
+  border-radius: 2px;
 }
 
 /*------------------- FORM --------------------*/
@@ -64,8 +66,10 @@ header {
   margin: 10px 0px;
 }
 
-.caption-text {
-  
+.title-input,
+.caption-input {
+  border: none;
+  border-radius: 2px;
 }
 
 #select-photo {
@@ -95,6 +99,7 @@ header {
 .add-to-album-btn {
   background: #5B4447;
   border: none;
+  border-radius: 2px;
   color: #fff;
   padding: 10px;
   margin: 10px 0px;
@@ -165,6 +170,8 @@ header {
   margin: 5px;
   width: 30px;
 }
+
+.foto-
 
 
 

@@ -40,8 +40,8 @@ function albumCard(event) {
   }
 }
 
-function addFotoCard(e) {
-  var newPhoto = new Photo(Date.now(), e.target.result, title.value, caption.value);
+function addFotoCard(event) {
+  var newPhoto = new Photo(Date.now(), event.target.result, title.value, caption.value);
   populateCard(newPhoto.photoId, newPhoto.file, newPhoto.title, newPhoto.caption);
   imagesArr.push(newPhoto);
   newPhoto.saveToStorage(imagesArr);
@@ -55,6 +55,13 @@ function appendPhotos() {
     });
 }
 
+// function deleteCard(photoId) {
+//   var card = imageArr.find(function(card) {
+//     return card.id === photoId
+//   })
+//   // find the photo correct id of the photo we want to be deleted. We want to delete from the DOM as well in local storage. 
+// }
+
 function removeAllCards() {
   photoGallery.innerHTML = '';
 }
@@ -66,7 +73,7 @@ function liveSearchFilter () {
     return photo.title.includes(searchCurrentText) || photo.caption.includes(searchCurrentText)
   });
   filteredCards.forEach(function(photo) {
-    addFotoCard(photo);
+    populateCard(photo.id, photo.file, photo.title, photo.caption);
   });
 }
 

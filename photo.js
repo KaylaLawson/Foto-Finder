@@ -12,7 +12,7 @@ class Photo {
   }
 
   deleteFromStorage() {
-
+    // localStorage.setItem('imagesArr', JSON.stringify(imagesArr));
   }
 
   updatePhoto() {
