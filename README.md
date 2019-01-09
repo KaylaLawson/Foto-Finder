@@ -35,6 +35,11 @@ I have listed out the wishes and fixes in the issues portion of the GitHub.
 
 ## Spec of project:
 
+Full webpage: 
+![screencapture-file-users-groot-desktop-mod1-foto-finder-index-html-2019-01-09-07_10_15](https://user-images.githubusercontent.com/37053236/50905024-0db34d00-13df-11e9-96d8-e5768c7461ba.png)
 
+Mobile 1:
+![screencapture-file-users-groot-desktop-mod1-foto-finder-index-html-2019-01-09-07_11_06](https://user-images.githubusercontent.com/37053236/50905039-173cb500-13df-11e9-99b1-d1e7617bc841.png)
 
+Mobile 2:
 ![screencapture-file-users-groot-desktop-mod1-foto-finder-index-html-2019-01-09-07_11_45](https://user-images.githubusercontent.com/37053236/50904964-e5c3e980-13de-11e9-84b1-4018bb73383e.png)
