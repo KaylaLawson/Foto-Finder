@@ -1,6 +1,6 @@
 class Photo {
   constructor(id, file, title, caption, favorite) {
-    this.id = id || Date.now();
+    this.id = id;
     this.file = file;
     this.title = title;
     this.caption = caption;
@@ -8,11 +8,15 @@ class Photo {
   }
 
   saveToStorage() {
-    localStorage.setItem('imagesArr', JSON.stringify(imagesArr));
+    localStorage.setItem('imagesArrlocal', JSON.stringify(imagesArr));
   }
 
   deleteFromStorage() {
-    // localStorage.setItem('imagesArr', JSON.stringify(imagesArr));
+    var selectedCardIndex = imagesArr.findIndex(function(photo) {
+    return photo.id === selectedCardIndex;
+  });
+    imagesArr.splice(selectedCardIndex, 1);
+    this.saveToStorage(imagesArr);
   }
 
   updatePhoto() {

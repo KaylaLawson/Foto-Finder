@@ -3,17 +3,20 @@
 var photoFile = document.querySelector('.choose-file-btn');
 var createAlbum = document.querySelector('.add-to-album-btn');
 var photoGallery = document.querySelector('.album-wrapper');
-var imagesArr = JSON.parse(localStorage.getItem('imagesArr')) || [];
+var imagesArr = JSON.parse(localStorage.getItem('imagesArrlocal')) || [];
 var reader = new FileReader();
 var title = document.querySelector('.title-input');
 var caption = document.querySelector('.caption-input');
 var searchInput = document.querySelector('.search-input');
+var albumWrapper = document.querySelector('.album-wrapper');
+
 
 // EVENT LISTENERS
 
 window.addEventListener('load', appendPhotos);
 createAlbum.addEventListener('click', albumCard);
 searchInput.addEventListener('input', liveSearchFilter);
+albumWrapper.addEventListener('click', manipulateCard);
 
 // FUNCTIONS
 
@@ -26,7 +29,7 @@ function populateCard(photoId, file, title, caption) {
     <h2 class="foto-caption" contenteditable="true">${caption}</h2>
     <article class="foto-card-footer">
       <img class="trash-icon" src="assets/delete.svg">
-      <img calss="heart-icon" src="assets/favorite.svg">
+      <img class="heart-icon" src="assets/favorite.svg">
     </article>
   </section>
   `;
@@ -40,9 +43,18 @@ function albumCard(event) {
   }
 }
 
+function manipulateCard(event) {
+  if (event.target.classList.contains('trash-icon')) {
+    deleteCard(event);
+  } else if (event.target.classList.contains('heart-icon')) {
+    isFavorite(event);
+  } else if (event.target.classList.contains('foto-title' || 'foto-caption')) {
+    editContent();
+  }
+}
 function addFotoCard(event) {
   var newPhoto = new Photo(Date.now(), event.target.result, title.value, caption.value);
-  populateCard(newPhoto.photoId, newPhoto.file, newPhoto.title, newPhoto.caption);
+  populateCard(newPhoto.id, newPhoto.file, newPhoto.title, newPhoto.caption);
   imagesArr.push(newPhoto);
   newPhoto.saveToStorage(imagesArr);
   title.value = "";
@@ -55,13 +67,23 @@ function appendPhotos() {
     });
 }
 
-// function deleteCard(photoId) {
-//   var card = imageArr.find(function(card) {
-//     return card.id === photoId
-//   })
-//   // find the photo correct id of the photo we want to be deleted. We want to delete from the DOM as well in local storage. 
-// }
+function deleteCard(event) {
+  var selectedCard = event.target.closest('.foto-card-container');
+  var selectedCardId = parseInt(selectedCard.dataset.id);
+  var selectedCardIndex = imagesArr.findIndex(function(photo) {
+    return photo.id === selectedCardId;
+  });
+  imagesArr[selectedCardIndex].deleteFromStorage();
+  selectedCard.remove();
+}
 
+function isFavorite(event) {
+  console.log('clicked favorite')
+}
+
+function editContent(event) {
+  console.log('edit content')
+}
 function removeAllCards() {
   photoGallery.innerHTML = '';
 }
@@ -76,4 +98,3 @@ function liveSearchFilter () {
     populateCard(photo.id, photo.file, photo.title, photo.caption);
   });
 }
-
