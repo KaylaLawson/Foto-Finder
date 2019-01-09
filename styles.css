@@ -3,9 +3,15 @@
 }
 
 body {
-  display: grid;
-  font-family: 'Open Sans', sans-serif;
-  grid-template-rows: 1fr 4fr 5fr;
+  font-family: 'Open Sans', sans-serif; 
+}
+
+input:focus {
+  outline: none;
+}
+
+textarea:focus {
+  outline: none;
 }
 
 /*------------------- HEADER --------------------*/
@@ -18,8 +24,8 @@ header {
 }
 
 .title {
-  display:flex;
   color: #fff; 
+  display:flex;
   font-weight: 800;
 }
 
@@ -35,12 +41,14 @@ header {
 
 .search-input {
   border: none;
+  border-radius: 2px;
 }
 
 .fa-search {
-  padding: 5px;
   background: #8C8C8C;
+  border-radius: 2px;
   color: #fff;
+  padding: 5px;
 }
 
 /*------------------- FORM --------------------*/
@@ -52,11 +60,11 @@ header {
 
 .form-container {
   display: grid;
-  justify-content: center;
   font-weight: 600;
+  justify-content: center;
 }
 
-.tbc {
+.title-cap-choose {
   width: 650px;
 }
 
@@ -66,12 +74,29 @@ header {
   margin: 10px 0px;
 }
 
-.choose-file-btn {
+.title-input,
+.caption-input {
+  border-radius: 2px;
+  border: none;
+  padding: 5px;
+}
+
+#select-photo {
   background: #5B4447;
   border: none;
   color: #fff;
   margin: 20px 0px;
   padding: 10px;
+  text-align: center;
+}
+
+.choose-file-btn {
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 0.1px;
+  z-index: -1;
 }
 
 .view-addalbum-container {
@@ -82,14 +107,15 @@ header {
 .view-favorite-btn, 
 .add-to-album-btn {
   background: #5B4447;
+  border-radius: 2px;
   border: none;
   color: #fff;
-  padding: 10px;
   margin: 10px 0px;
+  padding: 10px;
   width: 315px;
 }
 
-.choose-file-btn:hover,
+#select-photo:hover,
 .view-favorite-btn:hover, 
 .add-to-album-btn:hover {
   background: #938284;
@@ -99,25 +125,100 @@ header {
 
 .album-wrapper {
   background: #C2B2B4;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.expand-btn-container {
-  display: grid;
-  justify-content: center;
+/* --------------- FOTO CARD ---------------*/
+
+h2:focus {
+  outline: none;
 }
 
-.expand-btn {
+.foto-card-container {
+  background: #fff;
+  border-radius: 2px;
+  border: 1px solid #938284;
+  box-shadow: 2px 2px 5px #938284;
+  margin: 10px;
+  width: 300px;
+}
+.foto-card-container img {
+  width: 100%;
+}
+
+.foto-title,
+.foto-caption {
+  color: #3E2A35;
+  font-size: 15pt;
+  font-weight: 100;
+}
+
+.foto-card-footer {
   background: #5B4447;
-  border: none;
-  color: #fff;
-  padding: 10px;
-  margin: 20px;
-  width: 650px;
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
 }
 
-.expand-btn:hover {
-  background: #938284;
+.foto-card-footer img {
+  margin: 5px;
+  width: 30px;
 }
+
+/* --------------- MEDIA QUERIES ---------------*/
+
+@media screen and (max-width: 320px) {
+  header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+ .title-cap-choose {
+    width: 300px;
+  }
+
+  .view-favorite-btn, 
+  .add-to-album-btn {
+    width: 145px;
+  }
+
+  .album-wrapper {
+    justify-content: space-around;
+  }
+
+  #select-photo {
+    width: 300px;
+  }
+}
+@media screen and (max-width: 680px) {
+
+header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+.title-cap-choose {
+    width: 300px;
+  }
+
+.view-favorite-btn, 
+  .add-to-album-btn {
+    width: 145px;
+  }
+
+.album-wrapper {
+    justify-content: space-around;
+  }
+}
+
+
+
+
+
+
 
 
 
