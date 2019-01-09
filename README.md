@@ -34,3 +34,7 @@ As this is the first solo project I have done, I have proud of where I got. That
 I have listed out the wishes and fixes in the issues portion of the GitHub. 
 
 ## Spec of project:
+
+
+
+![screencapture-file-users-groot-desktop-mod1-foto-finder-index-html-2019-01-09-07_11_45](https://user-images.githubusercontent.com/37053236/50904964-e5c3e980-13de-11e9-84b1-4018bb73383e.png)
