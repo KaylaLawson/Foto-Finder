@@ -24,7 +24,7 @@ Provide a fluid and responsive client-side interface which relies on JavaScript,
 
 
 ## Challenges:
-One large challenge introduced in this project was implementing was building the functionality to favorite the card. I was not able to complete that portion of the code. 
+One large challenge introduced in this project was implementing was building the functionality to favorite the card. I was not able to complete that portion of the code. The biggest/ smallest thing that I'm most frustrated with is with the styling of the card, its just not there yet.  
 
 ## Wins:
 As this is the first solo project I have done, I have proud of where I got. That is the best win, that I am proud. 
