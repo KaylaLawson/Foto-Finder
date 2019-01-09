@@ -22,5 +22,4 @@ class Photo {
   updatePhoto() {
     
   }
-
 }

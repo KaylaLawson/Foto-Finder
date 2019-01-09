@@ -69,21 +69,18 @@ function appendPhotos() {
 
 function deleteCard(event) {
   var selectedCard = event.target.closest('.foto-card-container');
+  console.log(selectedCard)
   var selectedCardId = parseInt(selectedCard.dataset.id);
+  console.log(selectedCardId);
   var selectedCardIndex = imagesArr.findIndex(function(photo) {
     return photo.id === selectedCardId;
   });
+    console.log(selectedCardIndex);
   imagesArr[selectedCardIndex].deleteFromStorage();
   selectedCard.remove();
 }
 
-function isFavorite(event) {
-  console.log('clicked favorite')
-}
 
-function editContent(event) {
-  console.log('edit content')
-}
 function removeAllCards() {
   photoGallery.innerHTML = '';
 }

@@ -6,6 +6,10 @@ body {
   font-family: 'Open Sans', sans-serif; 
 }
 
+input:focus {
+  outline: none;
+}
+
 /*------------------- HEADER --------------------*/
 
 header {
@@ -16,8 +20,8 @@ header {
 }
 
 .title {
-  display:flex;
   color: #fff; 
+  display:flex;
   font-weight: 800;
 }
 
@@ -37,10 +41,10 @@ header {
 }
 
 .fa-search {
-  padding: 5px;
   background: #8C8C8C;
-  color: #fff;
   border-radius: 2px;
+  color: #fff;
+  padding: 5px;
 }
 
 /*------------------- FORM --------------------*/
@@ -52,8 +56,8 @@ header {
 
 .form-container {
   display: grid;
-  justify-content: center;
   font-weight: 600;
+  justify-content: center;
 }
 
 .title-cap-choose {
@@ -68,8 +72,9 @@ header {
 
 .title-input,
 .caption-input {
-  border: none;
   border-radius: 2px;
+  border: none;
+  padding: 5px;
 }
 
 #select-photo {
@@ -82,11 +87,11 @@ header {
 }
 
 .choose-file-btn {
-  width: 0.1px;
   height: 0.1px;
   opacity: 0;
   overflow: hidden;
   position: absolute;
+  width: 0.1px;
   z-index: -1;
 }
 
@@ -98,11 +103,11 @@ header {
 .view-favorite-btn, 
 .add-to-album-btn {
   background: #5B4447;
-  border: none;
   border-radius: 2px;
+  border: none;
   color: #fff;
-  padding: 10px;
   margin: 10px 0px;
+  padding: 10px;
   width: 315px;
 }
 
@@ -120,33 +125,19 @@ header {
   flex-wrap: wrap;
 }
 
-.expand-btn-container {
-  display: grid;
-  justify-content: center;
-}
-
-.expand-btn {
-  background: #5B4447;
-  border: none;
-  color: #fff;
-  padding: 10px;
-  margin: 20px;
-  width: 650px;
-}
-
-.expand-btn:hover {
-  background: #938284;
-}
-
 /* --------------- FOTO CARD ---------------*/
+
+h2:focus {
+  outline: none;
+}
 
 .foto-card-container {
   background: #fff;
-  border: 1px solid #938284;
   border-radius: 2px;
-  margin: 5px;
-  width: 300px;
+  border: 1px solid #938284;
   box-shadow: 2px 2px 5px #938284;
+  margin: 10px;
+  width: 300px;
 }
 .foto-card-container img {
   width: 100%;
@@ -171,7 +162,56 @@ header {
   width: 30px;
 }
 
-.foto-
+/* --------------- MEDIA QUERIES ---------------*/
+
+@media screen and (max-width: 320px) {
+  header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+ .title-cap-choose {
+    width: 300px;
+  }
+
+  .view-favorite-btn, 
+  .add-to-album-btn {
+    width: 145px;
+  }
+
+  .album-wrapper {
+    justify-content: space-around;
+  }
+
+  #select-photo {
+    width: 300px;
+  }
+}
+@media screen and (max-width: 680px) {
+
+header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+.title-cap-choose {
+    width: 300px;
+  }
+
+.view-favorite-btn, 
+  .add-to-album-btn {
+    width: 145px;
+  }
+
+.album-wrapper {
+    justify-content: space-around;
+  }
+}
+
+
+
 
 
 
