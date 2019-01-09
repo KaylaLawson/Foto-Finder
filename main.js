@@ -20,7 +20,7 @@ albumWrapper.addEventListener('click', manipulateCard);
 
 // FUNCTIONS
 
-function populateCard(photoId, file, title, caption) {
+function populateCard(photoId, file, title, caption, favorite) {
  photoGallery.innerHTML += 
   `
   <section class="foto-card-container" data-id=${photoId}>
