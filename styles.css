@@ -3,6 +3,7 @@
 }
 
 body {
+  background: #C2B2B4;
   font-family: 'Open Sans', sans-serif; 
 }
 
@@ -41,7 +42,7 @@ header {
 
 .search-input {
   border: none;
-  border-radius: 2px;
+  border-radius: 0px;
 }
 
 .fa-search {
@@ -124,7 +125,6 @@ header {
 /* --------------- ALBUM WRAPPER--------------- */
 
 .album-wrapper {
-  background: #C2B2B4;
   display: flex;
   flex-wrap: wrap;
 }

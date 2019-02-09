@@ -2,7 +2,7 @@
 
 var photoFile = document.querySelector('.choose-file-btn');
 var createAlbum = document.querySelector('.add-to-album-btn');
-var photoGallery = document.querySelector('.album-wrapper');
+// var photoGallery = document.querySelector('.album-wrapper');
 var imagesArr = JSON.parse(localStorage.getItem('imagesArrlocal')) || [];
 var reader = new FileReader();
 var title = document.querySelector('.title-input');
@@ -21,8 +21,9 @@ albumWrapper.addEventListener('click', manipulateCard);
 // FUNCTIONS
 
 function populateCard(photoId, file, title, caption, favorite) {
- photoGallery.innerHTML += 
-  `
+  var card = document.createElement('article');
+  card.className = 'photo-card';
+  card.innerHTML = `
   <section class="foto-card-container" data-id=${photoId}>
     <h2 class="foto-title" contenteditable="true">${title}</h2>
     <article class="foto-image"><img src=${file} /></article>
@@ -33,6 +34,8 @@ function populateCard(photoId, file, title, caption, favorite) {
     </article>
   </section>
   `;
+
+  albumWrapper.prepend(card);
 }
 
 function albumCard(event) {
@@ -75,11 +78,11 @@ function deleteCard(event) {
   var selectedCardIndex = imagesArr.findIndex(function(photo) {
     return photo.id === selectedCardId;
   });
-    console.log(selectedCardIndex);
-  imagesArr[selectedCardIndex].deleteFromStorage();
+  console.log(selectedCardIndex);
   selectedCard.remove();
+  selectedCard.deleteFromStorage();
+  // imagesArr[selectedCardIndex].deleteFromStorage();
 }
-
 
 function removeAllCards() {
   photoGallery.innerHTML = '';
