@@ -2,8 +2,8 @@
 
 var photoFile = document.querySelector('.choose-file-btn');
 var createAlbum = document.querySelector('.add-to-album-btn');
-// var photoGallery = document.querySelector('.album-wrapper');
-var imagesArr = JSON.parse(localStorage.getItem('imagesArrlocal')) || [];
+var photoGallery = document.querySelector('.album-wrapper');
+var imagesArr = JSON.parse(localStorage.getItem('imagesArr')) || [];
 var reader = new FileReader();
 var title = document.querySelector('.title-input');
 var caption = document.querySelector('.caption-input');
@@ -13,7 +13,7 @@ var albumWrapper = document.querySelector('.album-wrapper');
 
 // EVENT LISTENERS
 
-window.addEventListener('load', appendPhotos);
+window.addEventListener('load', appendPhotos(imagesArr));
 createAlbum.addEventListener('click', albumCard);
 searchInput.addEventListener('input', liveSearchFilter);
 albumWrapper.addEventListener('click', manipulateCard);
@@ -21,9 +21,7 @@ albumWrapper.addEventListener('click', manipulateCard);
 // FUNCTIONS
 
 function populateCard(photoId, file, title, caption, favorite) {
-  var card = document.createElement('article');
-  card.className = 'photo-card';
-  card.innerHTML = `
+  var card = `
   <section class="foto-card-container" data-id=${photoId}>
     <h2 class="foto-title" contenteditable="true">${title}</h2>
     <article class="foto-image"><img src=${file} /></article>
@@ -34,8 +32,7 @@ function populateCard(photoId, file, title, caption, favorite) {
     </article>
   </section>
   `;
-
-  albumWrapper.prepend(card);
+  albumWrapper.insertAdjacentHTML('afterbegin', card);
 }
 
 function albumCard(event) {
@@ -44,6 +41,15 @@ function albumCard(event) {
     reader.readAsDataURL(photoFile.files[0]); 
     reader.onload = addFotoCard
   }
+}
+
+function addFotoCard(event) {
+  var newPhoto = new Photo(Date.now(), event.target.result, title.value, caption.value);
+  populateCard(newPhoto.id, newPhoto.file, newPhoto.title, newPhoto.caption);
+  imagesArr.push(newPhoto);
+  newPhoto.saveToStorage(imagesArr);
+  title.value = "";
+  caption.value = "";
 }
 
 function manipulateCard(event) {
@@ -55,46 +61,32 @@ function manipulateCard(event) {
     editContent();
   }
 }
-function addFotoCard(event) {
-  var newPhoto = new Photo(Date.now(), event.target.result, title.value, caption.value);
-  populateCard(newPhoto.id, newPhoto.file, newPhoto.title, newPhoto.caption);
-  imagesArr.push(newPhoto);
-  newPhoto.saveToStorage(imagesArr);
-  title.value = "";
-  caption.value = "";
-}
 
-function appendPhotos() {
-  imagesArr.forEach(function (photo) {
+function appendPhotos(fotoCards) {
+  imagesArr = []
+  fotoCards.forEach(function(photo) {
+    imagesArr.push(new Photo(photo.id, photo.file, photo.title, photo.caption));
     populateCard(photo.id, photo.file, photo.title, photo.caption);
     });
 }
 
-function deleteCard(event) {
+function deleteCard() {
   var selectedCard = event.target.closest('.foto-card-container');
-  console.log(selectedCard)
   var selectedCardId = parseInt(selectedCard.dataset.id);
-  console.log(selectedCardId);
-  var selectedCardIndex = imagesArr.findIndex(function(photo) {
+  var index = imagesArr.findIndex(function(photo) {
     return photo.id === selectedCardId;
   });
-  console.log(selectedCardIndex);
+  imagesArr[index].deleteFromStorage(index);
   selectedCard.remove();
-  selectedCard.deleteFromStorage();
-  // imagesArr[selectedCardIndex].deleteFromStorage();
-}
-
-function removeAllCards() {
-  photoGallery.innerHTML = '';
 }
 
 function liveSearchFilter () {
-  removeAllCards();
+  photoGallery.innerHTML = '';
   var searchCurrentText = searchInput.value;
-  var filteredCards = imagesArr.filter(function (photo) {
+  var filteredCards = imagesArr.filter(function(photo) {
     return photo.title.includes(searchCurrentText) || photo.caption.includes(searchCurrentText)
   });
   filteredCards.forEach(function(photo) {
-    populateCard(photo.id, photo.file, photo.title, photo.caption);
+  populateCard(photo.id, photo.file, photo.title, photo.caption);
   });
 }

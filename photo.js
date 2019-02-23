@@ -7,19 +7,19 @@ class Photo {
     this.favorite = favorite || false;
   }
 
-  saveToStorage() {
-    localStorage.setItem('imagesArrlocal', JSON.stringify(imagesArr));
+  saveToStorage(imagesArr) {
+    localStorage.setItem('imagesArr', JSON.stringify(imagesArr));
+    // var stringified = JSON.stringify(imagesArr);
+    // localStorage.setItem("stringifiedIdeas", stringified);
   }
 
-  deleteFromStorage() {
-    var selectedCardIndex = imagesArr.findIndex(function(photo) {
-    return photo.id === selectedCardIndex;
-  });
-    imagesArr.splice(selectedCardIndex, 1);
-    this.saveToStorage(imagesArr);
+  deleteFromStorage(index) {
+   imagesArr.splice(index, 1);
+   this.saveToStorage(imagesArr);
   }
 
   updatePhoto() {
+    
     
   }
 }
