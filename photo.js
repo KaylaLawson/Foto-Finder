@@ -8,9 +8,7 @@ class Photo {
   }
 
   saveToStorage(imagesArr) {
-    localStorage.setItem('imagesArr', JSON.stringify(imagesArr));
-    // var stringified = JSON.stringify(imagesArr);
-    // localStorage.setItem("stringifiedIdeas", stringified);
+    localStorage.setItem('photos', JSON.stringify(imagesArr));
   }
 
   deleteFromStorage(index) {
@@ -18,8 +16,8 @@ class Photo {
    this.saveToStorage(imagesArr);
   }
 
-  updatePhoto() {
-    
-    
+  updatePhoto(newText, cats) {
+    this[cats] = newText;
+    this.saveToStorage(imagesArr);
   }
 }
