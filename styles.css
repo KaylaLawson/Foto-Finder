@@ -182,6 +182,10 @@ h2:focus {
   width: 30px;
 }
 
+.fofot-card-footer img:hover {
+  background-color: url(assets/delete-active.svg);
+}
+
 
 /* --------------- MEDIA QUERIES ---------------*/
 

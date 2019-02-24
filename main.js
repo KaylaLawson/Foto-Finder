@@ -29,8 +29,8 @@ function populateCard(newObject) {
     <article class="foto-image"><img src=${newObject.file} /></article>
     <h2 class="foto-caption" contenteditable="true">${newObject.caption}</h2>
     <article class="foto-card-footer">
-      <img class="trash-icon" alt="Delete the card" src="assets/delete.svg">
-      <img class="heart-icon" src=${newObject.favorite ? "assets/favorite-active.svg" : "assets/favorite.svg"} alt="favorite">
+      <img class="trash-icon" alt="Delete the card" src="assets/delete.svg" onmouseover="this.src='assets/delete-active.svg';" onmouseout="this.src='assets/delete.svg';" />
+      <img class="heart-icon" src=${newObject.favorite ? "assets/favorite-active.svg" : "assets/favorite.svg"} alt="favorite" />
     </article>
   </section>
   `;
@@ -107,13 +107,13 @@ function favoriteCard(event) {
   var selectedCard = imagesArr.find(function(image) {
      return image.id === selectedCardId;
   });
-  if (selectedCard.favorite === true) {
-      event.target.src = "assets/favorite.svg";
-    } else {
-      event.target.src = "assets/favorite-active.svg";
-    }
+  // if (selectedCard.favorite === true) {
+  //     event.target.src = "assets/favorite-active.svg";
+  //   } else {
+  //     event.target.src = "assets/favorite.svg";
+  //   }
   selectedCard.updatePhoto();
-  selectedCard.saveToStorage(imagesArr);
+  // selectedCard.saveToStorage(imagesArr);
 }
 
 function deleteCard() {
