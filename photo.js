@@ -16,8 +16,11 @@ class Photo {
    this.saveToStorage(imagesArr);
   }
 
-  updatePhoto(newText, cats) {
-    this[cats] = newText;
+  updatePhoto(newText, change) {
+    this[change] = newText; {
+    this.favorite = this.favorite;
+    }
     this.saveToStorage(imagesArr);
   }
+
 }

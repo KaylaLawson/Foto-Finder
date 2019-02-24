@@ -30,7 +30,7 @@ function populateCard(newObject) {
     <h2 class="foto-caption" contenteditable="true">${newObject.caption}</h2>
     <article class="foto-card-footer">
       <img class="trash-icon" alt="Delete the card" src="assets/delete.svg">
-      <img class="heart-icon" alt="Favorite the card" src="assets/favorite.svg">
+      <img class="heart-icon" src=${newObject.favorite ? "assets/favorite-active.svg" : "assets/favorite.svg"} alt="favorite">
     </article>
   </section>
   `;
@@ -46,7 +46,7 @@ function albumCard(event) {
 }
 
 function addFotoCard(event) {
-  if (title.value !== '' && caption.value !== '' && event.target.result !== '') {
+  if (title.value !== '' && event.target.result !== '') {
     var newPhoto = new Photo(Date.now(), event.target.result, title.value, caption.value);
     populateCard(newPhoto);
     imagesArr.push(newPhoto);
@@ -55,7 +55,6 @@ function addFotoCard(event) {
     caption.value = "";
   }
 }
-
 
 function appendPhotos(oldCards) {
   imagesArr = []
@@ -69,7 +68,7 @@ function manipulateCard(event) {
   if (event.target.classList.contains('trash-icon')) {
     deleteCard(event);
   } else if (event.target.classList.contains('heart-icon')) {
-    isFavorite(event);
+    favoriteCard(event);
   } 
 }
 
@@ -84,12 +83,37 @@ function saveOnReturn(event) {
 function saveCardAgain(event) {
   var selectedCard = parseInt(event.target.closest('.foto-card-container').dataset.id);
   var cardText = event.target.innerText;
-  var category = event.target.classList.contains('foto-title') ? 'title' : 'caption' ;
+  var elements = event.target.classList.contains('foto-title') ? 'title' : 'caption' ;
     imagesArr.forEach(function(image){
       if (image.id === selectedCard) {
-        image.updatePhoto(cardText, category);
+        image.updatePhoto(cardText, elements);
     }
   });
+}
+
+function liveSearchFilter () {
+  photoGallery.innerHTML = '';
+  var searchCurrentText = searchInput.value;
+  var filteredCards = imagesArr.filter(function(photo) {
+    return photo.title.toLowerCase().includes(searchCurrentText) || photo.caption.toLowerCase().includes(searchCurrentText)
+  });
+  filteredCards.forEach(function(photo) {
+    populateCard(photo);
+  });
+}
+
+function favoriteCard(event) {
+  var selectedCardId = parseInt(event.target.closest('.foto-card-container').dataset.id);
+  var selectedCard = imagesArr.find(function(image) {
+     return image.id === selectedCardId;
+  });
+  if (selectedCard.favorite === true) {
+      event.target.src = "assets/favorite.svg";
+    } else {
+      event.target.src = "assets/favorite-active.svg";
+    }
+  selectedCard.updatePhoto();
+  selectedCard.saveToStorage(imagesArr);
 }
 
 function deleteCard() {
@@ -100,15 +124,4 @@ function deleteCard() {
   });
   imagesArr[index].deleteFromStorage(index);
   selectedCard.remove();
-}
-
-function liveSearchFilter () {
-  photoGallery.innerHTML = '';
-  var searchCurrentText = searchInput.value;
-  var filteredCards = imagesArr.filter(function(photo) {
-    return photo.title.toLowerCase().includes(searchCurrentText) || photo.caption.toLowerCase().includes(searchCurrentText)
-  });
-  filteredCards.forEach(function(photo) {
-  populateCard(photo);
-  });
 }
