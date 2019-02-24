@@ -16,7 +16,7 @@ var albumWrapper = document.querySelector('.album-wrapper');
 window.addEventListener('load', appendPhotos(imagesArr));
 createAlbum.addEventListener('click', albumCard);
 searchInput.addEventListener('input', liveSearchFilter);
-albumWrapper.addEventListener('change', manipulateCard);
+albumWrapper.addEventListener('click', manipulateCard);
 albumWrapper.addEventListener('keydown', saveOnReturn);
 albumWrapper.addEventListener('focusout', saveCardAgain);
 
@@ -29,10 +29,8 @@ function populateCard(newObject) {
     <article class="foto-image"><img src=${newObject.file} /></article>
     <h2 class="foto-caption" contenteditable="true">${newObject.caption}</h2>
     <article class="foto-card-footer">
-      <img class="trash-icon" src="assets/delete.svg">
-      <img class="trash-icon" src="assets/delete-active.svg">
-
-      <img class="heart-icon" src="assets/favorite.svg">
+      <img class="trash-icon" alt="Delete the card" src="assets/delete.svg">
+      <img class="heart-icon" alt="Favorite the card" src="assets/favorite.svg">
     </article>
   </section>
   `;
@@ -48,13 +46,16 @@ function albumCard(event) {
 }
 
 function addFotoCard(event) {
-  var newPhoto = new Photo(Date.now(), event.target.result, title.value, caption.value);
-  populateCard(newPhoto);
-  imagesArr.push(newPhoto);
-  newPhoto.saveToStorage(imagesArr);
-  title.value = "";
-  caption.value = "";
+  if (title.value !== '' && caption.value !== '' && event.target.result !== '') {
+    var newPhoto = new Photo(Date.now(), event.target.result, title.value, caption.value);
+    populateCard(newPhoto);
+    imagesArr.push(newPhoto);
+    newPhoto.saveToStorage(imagesArr);
+    title.value = "";
+    caption.value = "";
+  }
 }
+
 
 function appendPhotos(oldCards) {
   imagesArr = []
@@ -105,9 +106,9 @@ function liveSearchFilter () {
   photoGallery.innerHTML = '';
   var searchCurrentText = searchInput.value;
   var filteredCards = imagesArr.filter(function(photo) {
-    return photo.title.includes(searchCurrentText) || photo.caption.includes(searchCurrentText)
+    return photo.title.toLowerCase().includes(searchCurrentText) || photo.caption.toLowerCase().includes(searchCurrentText)
   });
   filteredCards.forEach(function(photo) {
-  populateCard(photo.id, photo.file, photo.title, photo.caption);
+  populateCard(photo);
   });
 }
