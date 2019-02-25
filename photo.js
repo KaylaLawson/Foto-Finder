@@ -18,10 +18,7 @@ class Photo {
 
   updatePhoto(newText, change) {
     this[change] = newText; 
-    if (event.target.classList.contains('heart-icon')) {
-      this.favorite = !this.favorite;  
+    this.saveToStorage(imagesArr);
     }
-      this.saveToStorage(imagesArr);
-  }
 
 }

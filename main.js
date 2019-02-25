@@ -29,11 +29,12 @@ function populateCard(newObject) {
     <article class="foto-image"><img src=${newObject.file} /></article>
     <h2 class="foto-caption" contenteditable="true">${newObject.caption}</h2>
     <article class="foto-card-footer">
-      <img class="trash-icon" alt="Delete the card" src="assets/delete.svg" onmouseover="this.src='assets/delete-active.svg';" onmouseout="this.src='assets/delete.svg';" />
-      <img class="heart-icon" src=${newObject.favorite ? "assets/favorite-active.svg" : "assets/favorite.svg"} alt="favorite" />
+      <button class="trash-icon"></button>
+      <button class="heart-icon ${newObject.favorite}" alt="favorite"></button>
     </article>
   </section>
   `;
+
   albumWrapper.insertAdjacentHTML('afterbegin', card);
 }
 
@@ -84,9 +85,9 @@ function saveCardAgain(event) {
   var selectedCard = parseInt(event.target.closest('.foto-card-container').dataset.id);
   var cardText = event.target.innerText;
   var elements = event.target.classList.contains('foto-title') ? 'title' : 'caption' ;
-    imagesArr.forEach(function(image){
-      if (image.id === selectedCard) {
-        image.updatePhoto(cardText, elements);
+    imagesArr.forEach(function(photo){
+      if (photo.id === selectedCard) {
+        photo.updatePhoto(cardText, elements);
     }
   });
 }
@@ -104,16 +105,13 @@ function liveSearchFilter () {
 
 function favoriteCard(event) {
   var selectedCardId = parseInt(event.target.closest('.foto-card-container').dataset.id);
-  var selectedCard = imagesArr.find(function(image) {
-     return image.id === selectedCardId;
+  var whateverCheck = event.target.classList.contains('false') 
+  whateverCheck ? event.target.classList.replace('false', 'true') : event.target.classList.replace('true', 'false');
+  imagesArr.forEach(function (photo) {
+     if (photo.id === selectedCardId) {
+      photo.updatePhoto(whateverCheck, 'favorite'); 
+     }
   });
-  // if (selectedCard.favorite === true) {
-  //     event.target.src = "assets/favorite-active.svg";
-  //   } else {
-  //     event.target.src = "assets/favorite.svg";
-  //   }
-  selectedCard.updatePhoto();
-  // selectedCard.saveToStorage(imagesArr);
 }
 
 function deleteCard() {

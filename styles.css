@@ -9,6 +9,10 @@ body {
   font-family: 'Open Sans', sans-serif; 
 }
 
+button {
+   cursor: pointer;
+}
+
 /*------------------- HEADER --------------------*/
 
 header {
@@ -138,7 +142,7 @@ h2:focus {
   background: #fff;
   border-radius: 2px;
   border: 1px solid #938284;
-  box-shadow: 2px 2px 5px #938284;
+  /*box-shadow: 2px 2px 5px #938284;*/
   box-shadow: 2px 2px 5px #938284;
   display: flex;
   flex-direction: column;
@@ -162,7 +166,7 @@ h2:focus {
 .foto-title,
 .foto-caption {
   color: #3E2A35;
-  font-size: 15pt;
+  font-size: 1em;
   font-weight: 100;
   padding: 10px 5px;
   overflow: scroll;
@@ -176,16 +180,28 @@ h2:focus {
   justify-content: space-between;
 }
 
-.foto-card-footer img {
+.foto-card-footer button {
+  border: none;
   margin: 10px;
   height: 30px;
   width: 30px;
 }
 
-.fofot-card-footer img:hover {
-  background-color: url(assets/delete-active.svg);
+.trash-icon {
+  background: url(assets/delete.svg) no-repeat;
 }
 
+.trash-icon:hover {
+  background: url(assets/delete-active.svg) no-repeat;
+}
+
+.heart-icon {
+  background: url(assets/favorite.svg) no-repeat;
+}
+
+.heart-icon.true{
+  background: url(assets/favorite-active.svg) no-repeat;
+}
 
 /* --------------- MEDIA QUERIES ---------------*/
 
