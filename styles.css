@@ -41,6 +41,7 @@ header {
 .search-input {
   border: none;
   border-radius: 0px;
+  height: 28px;
   padding: 0 5px 0;
 }
 
@@ -106,6 +107,7 @@ header {
 .view-addalbum-container {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 15px;
 }
 
 .view-favorite-btn, 
@@ -134,10 +136,6 @@ header {
 
 /* --------------- FOTO CARD ---------------*/
 
-h2:focus {
-  outline: none;
-}
-
 .foto-card-container {
   background: #fff;
   border-radius: 2px;
@@ -148,7 +146,7 @@ h2:focus {
   flex-direction: column;
   height: 500px;
   justify-content: space-between;
-  margin: 10px;
+  margin: 15px;
   width: 300px;
 }
 
@@ -174,7 +172,6 @@ h2:focus {
 
 .foto-card-footer {
   background: #5B4447;
-  border-radius: 2px;
   display: flex;
   height: 50px;
   justify-content: space-between;
@@ -195,8 +192,10 @@ h2:focus {
   background: url(assets/delete-active.svg) no-repeat;
 }
 
-.heart-icon {
+.heart-icon,
+.heart-icon:focus {
   background: url(assets/favorite.svg) no-repeat;
+  outline: none;
 }
 
 .heart-icon.true{
@@ -237,17 +236,30 @@ header {
     flex-direction: column;
   }
 
+.title {
+  font-size: 2.2em;
+}
+
+.icon-foto {
+  height: 37px;
+  padding: 2px 10px;
+}
+
 .title-cap-choose {
     width: 300px;
   }
 
 .view-favorite-btn, 
-  .add-to-album-btn {
+.add-to-album-btn {
     width: 145px;
   }
 
 .album-wrapper {
     justify-content: space-around;
+  }
+
+.search-input {
+  width: 272px;
   }
 }
 
