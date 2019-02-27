@@ -140,7 +140,6 @@ header {
   background: #fff;
   border-radius: 2px;
   border: 1px solid #938284;
-  /*box-shadow: 2px 2px 5px #938284;*/
   box-shadow: 2px 2px 5px #938284;
   display: flex;
   flex-direction: column;

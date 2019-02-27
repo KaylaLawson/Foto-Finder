@@ -20,5 +20,4 @@ class Photo {
     this[change] = newText; 
     this.saveToStorage(imagesArr);
     }
-
 }
