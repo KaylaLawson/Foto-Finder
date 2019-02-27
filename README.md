@@ -33,17 +33,22 @@ As this is the first solo project I have done, I am proud of where I got. That i
 ## Wishlist Fixes:
 I have listed out the wishes and fixes in the issues portion of the GitHub. 
 
-## Spec of project:
+## Images of project:
 
 # Full webpage: 
 
 ![screencapture-file-users-groot-desktop-mod1-foto-finder-index-html-2019-02-27-06_01_44](https://user-images.githubusercontent.com/37053236/53493471-9e5def00-3a58-11e9-9d27-84d28b3b4966.png)
 
+![screencapture-file-users-groot-desktop-mod1-foto-finder-index-html-2019-02-27-06_02_11](https://user-images.githubusercontent.com/37053236/53493458-97cf7780-3a58-11e9-851e-cbdd3b40290a.png)
 
 # Mobile 1:
 
-
+![screencapture-file-users-groot-desktop-mod1-foto-finder-index-html-2019-02-27-06_11_23](https://user-images.githubusercontent.com/37053236/53493499-b2a1ec00-3a58-11e9-906f-921101227425.png)
 
 # Mobile 2:
+
+![screencapture-file-users-groot-desktop-mod1-foto-finder-index-html-2019-02-27-06_12_04](https://user-images.githubusercontent.com/37053236/53493503-b6357300-3a58-11e9-8dd0-b8043c17cdc4.png)
+
+
 
 
