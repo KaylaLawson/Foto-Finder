@@ -37,6 +37,7 @@ I have listed out the wishes and fixes in the issues portion of the GitHub.
 
 # Full webpage: 
 
+![screencapture-file-users-groot-desktop-mod1-foto-finder-index-html-2019-02-27-06_01_44](https://user-images.githubusercontent.com/37053236/53493471-9e5def00-3a58-11e9-9d27-84d28b3b4966.png)
 
 
 # Mobile 1:
