@@ -110,9 +110,17 @@ header {
   margin-bottom: 15px;
 }
 
-.view-favorite-btn, 
+.album-btn-disabled {
+  background: #938284
+}
+
+.view-favorite-btn,
 .add-to-album-btn {
   background: #5B4447;
+}
+
+.view-favorite-btn, 
+.add-to-album-btn {
   border-radius: 2px;
   border: none;
   color: #fff;
@@ -122,8 +130,7 @@ header {
 }
 
 #select-photo:hover,
-.view-favorite-btn:hover, 
-.add-to-album-btn:hover {
+.view-favorite-btn:hover {
   background: #938284;
 }
 
@@ -132,6 +139,19 @@ header {
 .album-wrapper {
   display: flex;
   flex-wrap: wrap;
+}
+
+.shw-btn {
+  background: #5B4447;
+  border: none;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-top: 20px;
+  width: 650px;
+  padding: 10px;
+ 
 }
 
 /* --------------- FOTO CARD ---------------*/

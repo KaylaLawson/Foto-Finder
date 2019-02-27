@@ -9,7 +9,8 @@ var title = document.querySelector('.title-input');
 var caption = document.querySelector('.caption-input');
 var searchInput = document.querySelector('.search-input');
 var albumWrapper = document.querySelector('.album-wrapper');
-
+var showBtn = document.querySelector('.shw-btn');
+var viewFav = document.querySelector('.view-favorite-btn');
 
 // EVENT LISTENERS
 
@@ -19,6 +20,7 @@ searchInput.addEventListener('input', liveSearchFilter);
 albumWrapper.addEventListener('click', manipulateCard);
 albumWrapper.addEventListener('keydown', saveOnReturn);
 albumWrapper.addEventListener('focusout', saveCardAgain);
+showBtn.addEventListener('click', mostRecentFotos);
 
 // FUNCTIONS
 
@@ -34,7 +36,6 @@ function populateCard(newObject) {
     </article>
   </section>
   `;
-
   albumWrapper.insertAdjacentHTML('afterbegin', card);
 }
 
@@ -105,11 +106,11 @@ function liveSearchFilter () {
 
 function favoriteCard(event) {
   var selectedCardId = parseInt(event.target.closest('.foto-card-container').dataset.id);
-  var whateverCheck = event.target.classList.contains('false') 
-  whateverCheck ? event.target.classList.replace('false', 'true') : event.target.classList.replace('true', 'false');
+  var check = event.target.classList.contains('false') 
+  check ? event.target.classList.replace('false', 'true') : event.target.classList.replace('true', 'false');
   imagesArr.forEach(function (photo) {
      if (photo.id === selectedCardId) {
-      photo.updatePhoto(whateverCheck, 'favorite'); 
+      photo.updatePhoto(check, 'favorite'); 
      }
   });
 }
@@ -122,4 +123,37 @@ function deleteCard() {
   });
   imagesArr[index].deleteFromStorage(index);
   selectedCard.remove();
+}
+
+function viewFavorites(event) {
+  event.preventDefault();
+  photoGallery.innerHTML = "";
+  favArray = imagesArr.filter(function(photo) {
+    return photo.favorite == true;
+  })
+  favArray.forEach(function (photo) {
+    var newPhoto = new Photo(photo.id, photo.file, photo.title, photo.caption, photo.favorite);
+    populateCard(newPhoto);
+  });  
+}
+
+function mostRecentFotos(e) {
+ e.preventDefault();
+ photoGallery.innerHTML = '';
+ if (showBtn.innerText === 'Show More') {
+  showBtn.innerText= 'Show Less';
+  imagesArr.forEach(function(foto) {
+    populateCard(foto);
+  });
+ } else if (imagesArr.length > 10) {
+   var topTen = imagesArr.slice(-10);
+   showBtn.innerText = 'Show More';
+   topTen.forEach(function(foto) {
+    populateCard(foto)
+   });
+  } else {
+    imagesArr.forEach(function(foto) {
+    populateCard(foto);
+  });
+  }
 }
