@@ -113,6 +113,7 @@ function favoriteCard(event) {
       photo.updatePhoto(check, 'favorite'); 
      }
   });
+  favoriteAmount();
 }
 
 function deleteCard() {
@@ -125,16 +126,25 @@ function deleteCard() {
   selectedCard.remove();
 }
 
-function viewFavorites(event) {
-  event.preventDefault();
-  photoGallery.innerHTML = "";
-  favArray = imagesArr.filter(function(photo) {
-    return photo.favorite == true;
+// function viewFavorites(event) {
+//   event.preventDefault();
+//   photoGallery.innerHTML = "";
+//   favArray = imagesArr.filter(function (photo) {
+//     return photo.favorite == true;
+//   });
+//   favArray.forEach(function (photo) {
+//     var newPhoto = new Photo(photo.id, photo.file, photo.title, photo.caption, photo.favorite);
+//     populateCard(newPhoto);
+//   });  
+// }
+
+function favoriteAmount() {
+  var favNum = 0;
+  imagesArr.forEach(function (photo) {
+    if (photo.favorite === true) 
+      favNum++;
   })
-  favArray.forEach(function (photo) {
-    var newPhoto = new Photo(photo.id, photo.file, photo.title, photo.caption, photo.favorite);
-    populateCard(newPhoto);
-  });  
+  viewFav.innerText = `View ${favNum} Favorites`;
 }
 
 function mostRecentFotos(e) {

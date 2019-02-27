@@ -110,17 +110,9 @@ header {
   margin-bottom: 15px;
 }
 
-.album-btn-disabled {
-  background: #938284
-}
-
-.view-favorite-btn,
-.add-to-album-btn {
-  background: #5B4447;
-}
-
 .view-favorite-btn, 
 .add-to-album-btn {
+  background: #5B4447;
   border-radius: 2px;
   border: none;
   color: #fff;
@@ -130,7 +122,8 @@ header {
 }
 
 #select-photo:hover,
-.view-favorite-btn:hover {
+.view-favorite-btn:hover, 
+.add-to-album-btn:hover {
   background: #938284;
 }
 
