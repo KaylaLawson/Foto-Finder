@@ -2,9 +2,9 @@
 <html>
 <head>
   <title>Foto Finder</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <link rel="stylesheet" type="text/css" href="normalize.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="normalize.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
@@ -13,10 +13,10 @@
       <h1 class="title">FOTO
       <img class="icon-foto" src="assets/foto-finder-logo.svg">FINDER
       </h1>
-    <section class="search-container">
+    <div class="search-container">
       <input class="search-input" type="search" placeholder="Search">
       <i class="fas fa-search"></i>
-    </section>
+    </div>
   </header>
   <section class="form-wrapper">
     <form class="form-container">
@@ -25,17 +25,18 @@
       <label class="title-cap-choose caption-text" for="body">Caption</label>
       <textarea class="title-cap-choose caption-input" type="text" id="body" maxlength="100"> 
       </textarea>
-      <input class="choose-file-btn" id="select"type="file">
+      <input class="choose-file-btn" id="select" type="file" accept="image/*">
       <label id="select-photo" for="select">Choose File</label>
-      <article class="view-addalbum-container">
+      <div class="view-addalbum-container">
         <button class="view-favorite-btn" type="submit">View Favorites</button>
         <button class="add-to-album-btn" type="submit">Add to Album</button>
-      </article>
+      </div>
     </form>
   </section>
   <section class="album-wrapper">
   <!-- FOTO CARDS -->
   </section>
+  <button class="shw-btn">Show Less</button>
   <script type="text/javascript" src="photo.js"></script>
   <script type="text/javascript" src="main.js"></script>
 </body>
