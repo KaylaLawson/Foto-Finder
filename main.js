@@ -11,7 +11,6 @@ var searchInput = document.querySelector('.search-input');
 var albumWrapper = document.querySelector('.album-wrapper');
 var showBtn = document.querySelector('.shw-btn');
 var viewFav = document.querySelector('.view-favorite-btn');
-var favoriteArr = [];
 
 // EVENT LISTENERS
 
@@ -29,9 +28,9 @@ viewFav.addEventListener('click', viewFavorites);
 function populateCard(newObject) {
   var card = `
   <section class="foto-card-container" data-id=${newObject.id}>
-    <h2 class="foto-title" contenteditable="true">${newObject.title}</h2>
+    <h2 class="foto-title" contenteditable="true" maxlength="20">${newObject.title}</h2>
     <article class="foto-image"><img src=${newObject.file} /></article>
-    <h2 class="foto-caption" contenteditable="true">${newObject.caption}</h2>
+    <h2 class="foto-caption" contenteditable="true" maxlength="100">${newObject.caption}</h2>
     <article class="foto-card-footer">
       <button class="trash-icon"></button>
       <button class="heart-icon ${newObject.favorite}" alt="favorite"></button>
