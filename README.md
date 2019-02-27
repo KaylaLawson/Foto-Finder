@@ -7,15 +7,15 @@ Kayla Lawson
 * HTML
 * CSS
 * Vanilla Javascript
-This project relied heavily on JavaScript. Created UI with a limited amount of HTML. This was styled with CSS and is esponsive for large screens and mobile.
+This project relied heavily on JavaScript. Created UI with a limited amount of HTML. This was styled with CSS and is responsive for large screens and mobile.
 
 
 ## Project requirements:
-Build an idea generator to create photo cards that can be stored, deleted, and favorited. With each photo card being displayed in cards on the webpage, you have the ability to edit after you save an idea which gives the user the ability to change the original content.
+Build an photo generator to create photo cards that can be stored, deleted, and favorited. With each photo card being displayed in cards on the webpage, you have the ability to edit after you save a card which gives the user the ability to change the original content.
 
 
 ## Goals:
-Provide a fluid and responsive client-side interface which relies on JavaScript, specifically localStorage, to persist ideas between sessions.
+Provide a fluid and responsive client-side interface which relies on JavaScript, specifically localStorage, to persist photos between sessions.
 * Build a responsive client-side application.
 * Implement client-side data persistence using localStorage.
 * Iterate over dom elements in order to filter what is being displayed.
@@ -24,10 +24,10 @@ Provide a fluid and responsive client-side interface which relies on JavaScript,
 
 
 ## Challenges:
-One large challenge introduced in this project was implementing was building the functionality to favorite the card. I was not able to complete that portion of the code. The biggest/ smallest thing that I'm most frustrated with is with the styling of the card, its just not there yet.  
+One large challenge introduced in this project was implementing was building the functionality to favorite the card. Also, the UI for displaying if a photo is choosen and visually showing the ablitly to upload was a challenge I never came to solve. 
 
 ## Wins:
-As this is the first solo project I have done, I have proud of where I got. That is the best win, that I am proud. 
+As this is the first solo project I have done, I am proud of where I got. That is the best win, that I am proud. 
 
 
 ## Wishlist Fixes:
@@ -37,12 +37,12 @@ I have listed out the wishes and fixes in the issues portion of the GitHub.
 
 # Full webpage: 
 
-![screencapture-file-users-groot-desktop-mod1-foto-finder-index-html-2019-01-09-07_10_15](https://user-images.githubusercontent.com/37053236/50905024-0db34d00-13df-11e9-96d8-e5768c7461ba.png)
+
 
 # Mobile 1:
 
-![screencapture-file-users-groot-desktop-mod1-foto-finder-index-html-2019-01-09-07_11_06](https://user-images.githubusercontent.com/37053236/50905039-173cb500-13df-11e9-99b1-d1e7617bc841.png)
+
 
 # Mobile 2:
 
-![screencapture-file-users-groot-desktop-mod1-foto-finder-index-html-2019-01-09-07_11_45](https://user-images.githubusercontent.com/37053236/50904964-e5c3e980-13de-11e9-84b1-4018bb73383e.png)
+
