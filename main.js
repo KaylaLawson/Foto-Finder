@@ -11,6 +11,7 @@ var searchInput = document.querySelector('.search-input');
 var albumWrapper = document.querySelector('.album-wrapper');
 var showBtn = document.querySelector('.shw-btn');
 var viewFav = document.querySelector('.view-favorite-btn');
+var favoriteArr = [];
 
 // EVENT LISTENERS
 
@@ -21,6 +22,7 @@ albumWrapper.addEventListener('click', manipulateCard);
 albumWrapper.addEventListener('keydown', saveOnReturn);
 albumWrapper.addEventListener('focusout', saveCardAgain);
 showBtn.addEventListener('click', mostRecentFotos);
+viewFav.addEventListener('click', viewFavorites);
 
 // FUNCTIONS
 
@@ -126,17 +128,16 @@ function deleteCard() {
   selectedCard.remove();
 }
 
-// function viewFavorites(event) {
-//   event.preventDefault();
-//   photoGallery.innerHTML = "";
-//   favArray = imagesArr.filter(function (photo) {
-//     return photo.favorite == true;
-//   });
-//   favArray.forEach(function (photo) {
-//     var newPhoto = new Photo(photo.id, photo.file, photo.title, photo.caption, photo.favorite);
-//     populateCard(newPhoto);
-//   });  
-// }
+function viewFavorites(event) {
+  event.preventDefault();
+  photoGallery.innerHTML = '';
+  var filteredCards = imagesArr.filter(function(photo) {
+    return photo.favorite === true;
+  }); 
+  filteredCards.forEach(function(photo) {
+    populateCard(photo);
+  });
+}
 
 function favoriteAmount() {
   var favNum = 0;
